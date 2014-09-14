@@ -1,6 +1,6 @@
 import os
 import pytest
-from tsl_email_utils import imap_download
+from tsl_email_utils import imap
 
 
 def get_env_variable(var_name):
@@ -18,9 +18,9 @@ def imap_client():
     host = get_env_variable("EMAIL_HOST")
     username = get_env_variable("EMAIL_USERNAME")
     password = get_env_variable("EMAIL_PASSWORD")
-    return imap_download.EMailClient.connect(host,
-                                             username,
-                                             password, True)
+    return imap.EMailClient.connect(host,
+                                    username,
+                                    password, True)
 
 
 def test_imap_parse_messages(imap_client):
@@ -35,7 +35,7 @@ def test_imap_parse_messages(imap_client):
 def test_fetch_messages_with_default_filter(imap_client):
 
     source = get_env_variable("EMAIL_SOURCE")
-    func = imap_download.default_filter
+    func = imap.default_filter
     messages = imap_client.fetch_messages(func, False, sent_from=source)
 
     for m in messages:
