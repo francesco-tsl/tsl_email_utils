@@ -16,16 +16,9 @@ class EMailClient(Imbox):
         return cls(host, username, password, ssl=ssl_enabled)
 
     def fetch_bodies_plain(self, **imap_filters):
-        message_text = []
-        response = self.messages(**imap_filters)
-        for msgid, msg in response:
+        func = lambda _, msg: msg.body['plain'][0]
 
-            text = msg.body['plain'][0]
-
-            message_text.append(text)
-            self.mark_seen(msgid)
-
-        return message_text
+        return [m for m in self.fetch_messages(func, True, **imap_filters)]
 
     def fetch_messages(self, filter_func, mark_seen, **imap_filters):
         response = self.messages(**imap_filters)
