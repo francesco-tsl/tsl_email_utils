@@ -9,7 +9,7 @@ def get_env_variable(var_name):
     except KeyError:
         msg = "Set the %s environment variable"
         error_msg = msg % var_name
-        raise error_msg
+        raise Exception(error_msg)
 
 
 @pytest.fixture
