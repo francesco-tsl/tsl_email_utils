@@ -29,7 +29,7 @@ def test_imap_parse_messages(imap_client):
     messages = imap_client.fetch_bodies_plain(sent_from=source)
 
     assert len(messages) > 0
-    assert messages[0] == "this is a message"
+    assert messages[0] == "this is a message\r\n"
 
 
 def test_fetch_messages_with_default_filter(imap_client):
@@ -40,3 +40,17 @@ def test_fetch_messages_with_default_filter(imap_client):
 
     for m in messages:
         assert len(m) == 2
+
+
+def test_fetch_messages_with_custom_filter(imap_client):
+
+    source = get_env_variable("EMAIL_SOURCE")
+    func = lambda _, msg: {'subject': msg.subject,
+                           'attachments': msg.attachments
+                           }
+    messages = imap_client.fetch_messages(func, False, sent_from=source)
+
+    for m in messages:
+        assert m['subject'] == '012345'
+        filename = '"Schermata 2014-09-03 alle 21.46.18.png"'
+        assert m['attachments'][0]['filename'] == filename
