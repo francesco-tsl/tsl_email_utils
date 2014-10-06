@@ -27,7 +27,10 @@ class EMailClient(Imbox):
 
             res = func(msgid, msg)
             if mark_seen:
-                self.mark_seen(msgid)
+                try:
+                    self.mark_seen(msgid)
+                except Exception as e:
+                    print(e)
 
             if res:
                 yield res
