@@ -1,13 +1,14 @@
 tsl_email_utils
 ===============
 
-This package, built on to of Imbox (https://github.com/martinrusev/imbox),
+This package, built on top of Imbox (https://github.com/martinrusev/imbox),
 provides some utilities to interact with an imap server.
 
 
 Author
 ------
-Francesco Pischedda <francesco.pischedda@gmail.com>
+Francesco Pischedda <francesco@thesourcelab.org>
+http://www.thesourcelab.org
 http://francesco.pischedda.info
 
 
