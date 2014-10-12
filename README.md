@@ -5,6 +5,15 @@ This package, built on top of Imbox (https://github.com/martinrusev/imbox),
 provides some utilities to interact with an imap server.
 
 
+History
+-------
+
+One day you are creating a software to fetch new contact requests sent from a
+website form, the day after you have to fetch attachments to feed another
+application and so on...so you realize that there is some common code that you
+want to keep somewhere
+
+
 Basic usage
 -----------
 
