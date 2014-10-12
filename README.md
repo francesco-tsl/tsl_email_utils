@@ -1,7 +1,7 @@
 tsl_email_utils
 ===============
 
-This package, built on to of Imbox (https://github.com/martinrusev/imbox),
+This package, built on top of Imbox (https://github.com/martinrusev/imbox),
 provides some utilities to interact with an imap server.
 
 
@@ -22,9 +22,10 @@ Please have a look at the tests to see "real" usage
 
 Author
 ------
-Francesco Pischedda <francesco.pischedda@gmail.com>
 The SourceLAB <francesco@thesourcelab.org>
-http://francesco.pischedda.info
+=======
+Francesco Pischedda <francesco@thesourcelab.org>
+http://www.thesourcelab.org
 
 
 License
